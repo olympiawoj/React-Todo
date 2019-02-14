@@ -2,14 +2,13 @@
 // feel free to change this component.js into TodoList.js
 
 import React from "react";
+import TodoItem from "./TodoItem";
 
 const TodoList = props => {
-  console.log("These are props", props);
-
   return (
     <div className="todoList">
       {props.todosArray.map(item => (
-        <TodoItem />
+        <TodoItem key={item.id} item={item} />
       ))}
     </div>
   );
