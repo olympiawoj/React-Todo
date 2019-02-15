@@ -35,17 +35,17 @@ class App extends React.Component {
   }
 
   addTodo = (e, item) => {
-    //dont forgt to include this
+    //dont forgt to include this in notes
     e.preventDefault();
 
     const newTodoItem = {
       task: item,
       id: Date.now(),
-      purchased: false
+      completed: false
     };
 
     this.setState({
-      todosArray: [...todosArray, newTodoItem]
+      todosArray: [...this.state.todosArray, newTodoItem]
     });
   };
 
@@ -55,7 +55,7 @@ class App extends React.Component {
         <h2>Welcome to your Todo App!</h2>
         <h2>{this.state.test}</h2>
         <TodoList todosArray={this.state.todosArray} />
-        <TodoForm />
+        <TodoForm addTodo={this.addTodo} />
       </div>
     );
   }
