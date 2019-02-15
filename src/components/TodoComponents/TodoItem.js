@@ -1,7 +1,7 @@
 import React from "react";
 
 const TodoItem = props => {
-  console.log("These are props", props);
+  //   console.log("These are props", props);
 
   return (
     <div className="todoItem">
