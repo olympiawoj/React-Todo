@@ -34,6 +34,21 @@ class App extends React.Component {
     };
   }
 
+  addTodo = (e, item) => {
+    //dont forgt to include this
+    e.preventDefault();
+
+    const newTodoItem = {
+      task: item,
+      id: Date.now(),
+      purchased: false
+    };
+
+    this.setState({
+      todosArray: [...todosArray, newTodoItem]
+    });
+  };
+
   render() {
     return (
       <div>
