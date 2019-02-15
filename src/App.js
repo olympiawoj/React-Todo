@@ -5,7 +5,7 @@ import TodoForm from "./components/TodoComponents/TodoForm";
 const todosArray = [
   {
     task: "Organize Garage",
-    id: 1528817077286,
+    id: 123,
     completed: false
   },
   {
@@ -49,12 +49,26 @@ class App extends React.Component {
     });
   };
 
+  toggleItem = itemId => {
+    this.setState({
+      todosArray: this.state.todosArray.map(item => {
+        if (itemId === item.id) {
+          return { ...item, completed: !item.completed };
+        }
+        return item;
+      })
+    });
+  };
+
   render() {
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
         <h2>{this.state.test}</h2>
-        <TodoList todosArray={this.state.todosArray} />
+        <TodoList
+          todosArray={this.state.todosArray}
+          toggleItem={this.toggleItem}
+        />
         <TodoForm addTodo={this.addTodo} />
       </div>
     );
