@@ -5,9 +5,10 @@ import React from "react";
 import TodoItem from "./TodoItem";
 
 const TodoList = props => {
+  const sortedList = props.todosArray.sort((a, b) => a.completed - b.completed);
   return (
     <div className="todoList">
-      {props.todosArray.map(item => (
+      {sortedList.map(item => (
         <TodoItem key={item.id} item={item} toggleItem={props.toggleItem} />
       ))}
     </div>
